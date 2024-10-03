@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerJumper : MonoBehaviour
 {
+    [SerializeField] LayerMask _groundLayer;
+    [SerializeField] Vector2 _colliderSize;
+    [SerializeField] ColliderDetector _detector;
     [SerializeField] private float _force;
 
     private Rigidbody2D _rigidbody;
@@ -19,7 +22,7 @@ public class PlayerJumper : MonoBehaviour
 
     private void Update()
     {
-        if (_input.IsJumping)
+        if (_input.IsJumping && _detector.IsCollide(transform, _groundLayer, _colliderSize, out _))
         {
             _isJumping = true;
         }
@@ -29,8 +32,6 @@ public class PlayerJumper : MonoBehaviour
     {
         if (_isJumping)
         {
-            Debug.Log(1);
-
             _rigidbody.AddForce(new Vector2(0f, _force), ForceMode2D.Impulse);
             _isJumping = false;
         }
