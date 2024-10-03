@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField] private float _speed;
+
     private readonly Quaternion _rightAngle = Quaternion.Euler(Vector3.zero);
     private readonly Quaternion _leftAngle = Quaternion.Euler(0f, 180f, 0f);
-
-    [SerializeField] private float _speed;
 
     private Rigidbody2D _rigidbody;
     private PlayerInput _input;
