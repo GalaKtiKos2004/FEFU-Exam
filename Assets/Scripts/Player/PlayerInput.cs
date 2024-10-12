@@ -10,15 +10,19 @@ public class PlayerInput : MonoBehaviour
     public float Move {  get; private set; }
     public bool IsJumping {  get; private set; }
 
+    public bool IsAttack { get; private set; }
+
     private void Awake()
     {
         Move = 0;
         IsJumping = false;
+        IsAttack = false;
     }
 
     private void Update()
     {
         Move = Input.GetAxisRaw(Horizontal);
         IsJumping = Convert.ToBoolean(Input.GetButtonDown(Jump) || Input.GetButtonDown(Vertical));
+        IsAttack = Input.GetKeyDown(KeyCode.Z);
     }
 }

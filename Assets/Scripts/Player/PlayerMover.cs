@@ -41,7 +41,7 @@ public class PlayerMover : MonoBehaviour, IMovable
         {
             transform.rotation = _rightAngle;
         }
-        else
+        else if (direction < 0)
         {
             transform.rotation = _leftAngle;
         }

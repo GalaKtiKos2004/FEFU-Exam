@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Fighter : MonoBehaviour
+public abstract class Fighter : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
 
@@ -9,6 +9,16 @@ public class Fighter : MonoBehaviour
     private void Awake()
     {
         _health = new Health(_maxHealth);
+    }
+
+    private void OnEnable()
+    {
+        _health.Died += Die;
+    }
+
+    private void OnDisable()
+    {
+        _health.Died -= Die;
     }
 
     public void TakeDamage(float damage)
@@ -25,4 +35,8 @@ public class Fighter : MonoBehaviour
 
         return false;
     }
+
+    protected virtual void Attack() { }
+
+    protected virtual void Die() { }
 }
