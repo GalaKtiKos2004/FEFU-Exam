@@ -30,6 +30,11 @@ public class PlayerJumper : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TryJump();
+    }
+
+    private void TryJump()
+    {
         if (_isJumping)
         {
             _rigidbody.AddForce(new Vector2(0f, _force), ForceMode2D.Impulse);
