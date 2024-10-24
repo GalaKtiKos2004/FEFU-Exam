@@ -38,5 +38,8 @@ public abstract class Fighter : MonoBehaviour
 
     protected virtual void Attack() { }
 
-    protected virtual void Die() { }
+    protected virtual void Die()
+    {
+        _health = new Health(_maxHealth);
+    }
 }

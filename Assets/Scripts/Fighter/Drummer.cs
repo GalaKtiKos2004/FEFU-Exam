@@ -21,7 +21,7 @@ public abstract class Drummer : Fighter
     {
         if (_attacker.TryAttack(_damage, _detector, transform, _attackedLayer, _colliderSize))
         {
-
+            
         }
     }
 }

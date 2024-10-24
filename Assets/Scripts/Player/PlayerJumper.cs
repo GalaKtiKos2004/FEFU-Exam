@@ -4,9 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerJumper : MonoBehaviour
 {
-    [SerializeField] LayerMask _groundLayer;
-    [SerializeField] Vector2 _colliderSize;
-    [SerializeField] ColliderDetector _detector;
+    [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private Vector2 _colliderSize;
+
+    [SerializeField] private ColliderDetector _detector;
+
     [SerializeField] private float _force;
 
     private Rigidbody2D _rigidbody;

@@ -25,5 +25,6 @@ public class PlayerFighter : Drummer
     protected override void Die()
     {
         _starter.StartGame();
+        base.Die();
     }
 }

@@ -6,17 +6,21 @@ public class Collector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out ICollectable collectable))
+        if (collision.TryGetComponent(out ICollectable collectable) == false)
         {
-            if (collectable is MedecineChest medecineChest)
-            {
-                if (_fighter.TryAddHealth(medecineChest.RecoverHealth) == false)
-                {
-                    return;
-                }
-            }
-
-            collectable.Collect();
+            return;
         }
+
+        if (collectable is MedecineChest medecineChest == false)
+        {
+            return;
+        }
+
+        if (_fighter.TryAddHealth(medecineChest.RecoverHealth) == false)
+        {
+            return;
+        }
+
+        collectable.Collect();
     }
 }
