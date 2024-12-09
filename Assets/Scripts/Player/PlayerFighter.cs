@@ -5,26 +5,29 @@ using UnityEngine;
 public class PlayerFighter : Drummer
 {
     private PlayerInput _input;
+    private GameStarter _positionStarter;
 
-    private GameStarter _starter;
-
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _input = GetComponent<PlayerInput>();
-        _starter = GetComponent<GameStarter>();
+
+        _positionStarter = GetComponent<GameStarter>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_input.IsAttack)
-        {
-            Attack();
-        }
+        _input.Attacked += TryAttack;
+    }
+
+    private void OnDisable()
+    {
+        _input.Attacked -= TryAttack;
     }
 
     protected override void Die()
     {
-        _starter.StartGame();
-        base.Die();
+        CreateNewHealth();
+        _positionStarter.StartGame();
     }
 }

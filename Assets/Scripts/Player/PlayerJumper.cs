@@ -4,43 +4,35 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerJumper : MonoBehaviour
 {
+    [SerializeField] private float _force;
+    [SerializeField] private ColliderDetector _colliderDetector;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Vector2 _colliderSize;
 
-    [SerializeField] private ColliderDetector _detector;
-
-    [SerializeField] private float _force;
-
     private Rigidbody2D _rigidbody;
-    private PlayerInput _input;
-
-    private bool _isJumping;
+    private PlayerInput _playerInput;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        _input = GetComponent<PlayerInput>();
+        _playerInput = GetComponent<PlayerInput>();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_input.IsJumping && _detector.IsCollide(transform, _groundLayer, _colliderSize, out _))
-        {
-            _isJumping = true;
-        }
+        _playerInput.Jumped += TryJump;
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        TryJump();
+        _playerInput.Jumped -= TryJump;
     }
 
     private void TryJump()
     {
-        if (_isJumping)
+        if (_colliderDetector.IsCollide(transform, _groundLayer, _colliderSize, out _))
         {
             _rigidbody.AddForce(new Vector2(0f, _force), ForceMode2D.Impulse);
-            _isJumping = false;
         }
     }
 }

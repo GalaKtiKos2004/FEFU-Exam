@@ -1,24 +1,24 @@
+using System;
 using UnityEngine;
 
 public abstract class Fighter : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth = 100f;
-
     private Health _health;
 
-    private void Awake()
-    {
-        _health = new Health(_maxHealth);
-    }
+    protected Health Health => _health;
 
-    private void OnEnable()
-    {
-        _health.Died += Die;
-    }
+    public event Action HealthCreating;
+
 
     private void OnDisable()
     {
         _health.Died -= Die;
+    }
+
+    public void Init(Health health)
+    {
+        _health = health;
+        _health.Died += Die;
     }
 
     public void TakeDamage(float damage)
@@ -26,20 +26,12 @@ public abstract class Fighter : MonoBehaviour
         _health.TakeDamage(damage);
     }
 
-    public bool TryAddHealth(float recoverHealth)
+    protected void CreateNewHealth()
     {
-        if (_health.TryAddHealth(recoverHealth))
-        {
-            return true;
-        }
-
-        return false;
+        HealthCreating?.Invoke();
     }
 
-    protected virtual void Attack() { }
+    public bool TryAddHealth(float recoverHealth) => _health.TryTreated(recoverHealth);
 
-    protected virtual void Die()
-    {
-        _health = new Health(_maxHealth);
-    }
+    protected abstract void Die();
 }

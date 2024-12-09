@@ -6,23 +6,38 @@ public class PlayerInput : MonoBehaviour
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
     private const string Jump = "Jump";
-    
-    public float Move {  get; private set; }
-    public bool IsJumping {  get; private set; }
 
-    public bool IsAttack { get; private set; }
+    private const KeyCode DodgeKey = KeyCode.C;
+    private const KeyCode AttackKey = KeyCode.Z;
+
+    public float Move { get; private set; }
+
+    public event Action Jumped;
+    public event Action Attacked;
+    public event Action Dodged;
 
     private void Awake()
     {
         Move = 0;
-        IsJumping = false;
-        IsAttack = false;
     }
 
     private void Update()
     {
         Move = Input.GetAxisRaw(Horizontal);
-        IsJumping = Convert.ToBoolean(Input.GetButtonDown(Jump) || Input.GetButtonDown(Vertical));
-        IsAttack = Input.GetKeyDown(KeyCode.Z);
+
+        if (Input.GetButtonDown(Jump) || Input.GetButtonDown(Vertical))
+        {
+            Jumped?.Invoke();
+        }
+
+        if (Input.GetKeyDown(AttackKey))
+        {
+            Attacked?.Invoke();
+        }
+
+        if (Input.GetKeyDown(DodgeKey))
+        {
+            Dodged?.Invoke();
+        }
     }
 }

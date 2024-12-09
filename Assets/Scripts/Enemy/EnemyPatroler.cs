@@ -5,22 +5,37 @@ using UnityEngine;
 
 public class EnemyPatroler : MonoBehaviour, IMovable
 {
+    [SerializeField] private Transform _player;
+    [SerializeField] private List<Transform> _waypoints;
+    [SerializeField] private PlayerFinder _finder;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _delay = 5f;
-    [SerializeField] private List<Transform> _waypoints;
 
-    private int _currentWaypoint = 0;
+    private Transform _target;
 
-    private float _currentSpeed;
+    private Coroutine _patrolDelayCorutine;
+
+    private Quaternion _rotationLeftAngle = Quaternion.Euler(0f, 0f, 0f);
+    private Quaternion _rotationRightAngle = Quaternion.Euler(0f, 180f, 0f);
 
     private WaitForSeconds _wait;
 
+    private float _currentSpeed;
+
+    private int _currentWaypoint = 0;
+
     public event Action<float> Moved;
 
-    private void Start()
+    private void OnEnable()
+    {
+        _finder.Collide += ChangeTarget;
+    }
+
+    private void Awake()
     {
         _wait = new WaitForSeconds(_delay);
         _currentSpeed = _speed;
+        _target = _waypoints[_currentWaypoint];
     }
 
     private void Update()
@@ -31,35 +46,78 @@ public class EnemyPatroler : MonoBehaviour, IMovable
         {
             if (_currentWaypoint == _waypoints.Count - 1)
             {
-                StartCoroutine(CountPatrolDelay());
+                _patrolDelayCorutine = StartCoroutine(CountPatrolDelay());
             }
             else
             {
                 _currentWaypoint++;
+                _target = _waypoints[_currentWaypoint];
             }
         }
     }
 
+    private void OnDisable()
+    {
+        _finder.Collide -= ChangeTarget;
+    }
+
     private void Move()
     {
+        FlipTowardsTarget();
+
         Moved?.Invoke(_currentSpeed);
         transform.position = new Vector3(
-            Mathf.MoveTowards(transform.position.x, _waypoints[_currentWaypoint].position.x, _currentSpeed * Time.deltaTime),
+            Mathf.MoveTowards(transform.position.x, _target.position.x, _currentSpeed * Time.deltaTime),
             transform.position.y, transform.position.z);
+    }
+
+    private void FlipTowardsTarget()
+    {
+        if (_target == null)
+            return;
+
+        if (_target.position.x > transform.position.x)
+        {
+            transform.rotation = _rotationRightAngle;
+        }
+        else if (_target.position.x < transform.position.x)
+        {
+            transform.rotation = _rotationLeftAngle;
+        }
+    }
+
+    private void ChangeTarget()
+    {
+        Debug.Log("ChangeTarget");
+
+        if (_target.TryGetComponent(out Waypoint _))
+        {
+            _waypoints.Reverse();
+            _currentWaypoint = 0;
+
+            _currentSpeed = _speed;
+
+            if (_patrolDelayCorutine != null)
+            {
+                StopCoroutine(_patrolDelayCorutine);
+            }
+
+            _target = _player.transform;
+        }
+        else
+        {
+            _target = _waypoints[_currentWaypoint];
+        }
     }
 
     private IEnumerator CountPatrolDelay()
     {
-        Vector3 rotation = new Vector3(0f, 180f, 0f);
-
         _currentSpeed = 0;
-
-        _waypoints.Reverse();
         _currentWaypoint = 0;
 
         yield return _wait;
 
-        transform.Rotate(rotation);
+        _waypoints.Reverse();
         _currentSpeed = _speed;
     }
 }

@@ -3,36 +3,39 @@ using UnityEngine;
 
 public class Health
 {
-    private float _maxHealth;
-
     public event Action Died;
+    public event Action<float, float> Changed;
 
     public Health(float maxHealth)
     {
-        _maxHealth = maxHealth;
+        MaxHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
+
+    public float MaxHealth { get; private set; }
 
     public float CurrentHealth { get; private set; }
 
     public void TakeDamage(float damage)
     {
-        CurrentHealth -= damage;
+        CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
-        if (CurrentHealth <= 0)
+        if (CurrentHealth == 0)
         {
             Died?.Invoke();
         }
     }
 
-    public bool TryAddHealth(float recoverHealth)
+    public bool TryTreated(float recoverHealth)
     {
-        if (CurrentHealth == _maxHealth)
+        if (CurrentHealth + recoverHealth > MaxHealth)
         {
             return false;
         }
         else
         {
-            CurrentHealth = Mathf.Clamp(recoverHealth, CurrentHealth, _maxHealth);
+            CurrentHealth += recoverHealth;
+            Changed?.Invoke(CurrentHealth, MaxHealth);
             return true;
         }
     }
