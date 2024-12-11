@@ -19,6 +19,7 @@ public class Health
     public void TakeDamage(float damage)
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
+        Changed?.Invoke(CurrentHealth, MaxHealth);
 
         if (CurrentHealth == 0)
         {

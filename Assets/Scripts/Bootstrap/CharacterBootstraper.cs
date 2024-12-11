@@ -3,8 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Fighter))]
 public class CharacterBootstraper : MonoBehaviour
 {
-    //[SerializeField] private HealthView _healthView;
-
+    [SerializeField] private HealthView _healthView;
     [SerializeField] private float _maxHealth = 100f;
 
     private Fighter _fighter;
@@ -30,6 +29,6 @@ public class CharacterBootstraper : MonoBehaviour
     {
         _health = new Health(_maxHealth);
         _fighter.Init(_health);
-        //_healthView.Init(_health);
+        _healthView.Init(_health);
     }
 }

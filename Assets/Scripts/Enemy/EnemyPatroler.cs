@@ -15,8 +15,8 @@ public class EnemyPatroler : MonoBehaviour, IMovable
 
     private Coroutine _patrolDelayCorutine;
 
-    private Quaternion _rotationLeftAngle = Quaternion.Euler(0f, 0f, 0f);
-    private Quaternion _rotationRightAngle = Quaternion.Euler(0f, 180f, 0f);
+    private Quaternion _rotationLeftAngle = Quaternion.Euler(0f, 180f, 0f);
+    private Quaternion _rotationRightAngle = Quaternion.Euler(0f, 0f, 0f);
 
     private WaitForSeconds _wait;
 
