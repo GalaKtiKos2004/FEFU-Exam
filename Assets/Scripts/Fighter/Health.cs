@@ -23,6 +23,7 @@ public class Health
 
         if (CurrentHealth == 0)
         {
+            Changed?.Invoke(MaxHealth, MaxHealth);
             Died?.Invoke();
         }
     }

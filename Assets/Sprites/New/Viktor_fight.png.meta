@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -134,7 +134,448 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Viktor_fight_0
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1552
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c69c2163342444eb39269867a20841
+      internalID: -1958442354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_1
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 1542
+        width: 215
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ac459ff57f20d94ba5e59657973fd2e
+      internalID: 1928988910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_2
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 1535
+        width: 242
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 109adadbf0ffbca489d275b930cdbd92
+      internalID: -1486895591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_3
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 1537
+        width: 227
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbbdaf410eed93d4f9460d6b2066b650
+      internalID: 462916869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 1530
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5dc84048289a3147adffb5f749a99ce
+      internalID: 255697595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_6
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 1081
+        width: 204
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bf1ae703ddafca47ab9c27f86d1771e
+      internalID: 455310088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_7
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 1066
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8fca1b1754b3534a833185ff1a64287
+      internalID: 824577449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_8
+      rect:
+        serializedVersion: 2
+        x: 837
+        y: 1059
+        width: 228
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b2b12493a0c20418e91f1486d5bf6a
+      internalID: -1531403915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_9
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 1062
+        width: 242
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c4c6a47fc727d344a45b5f0f96944dd
+      internalID: 1932625665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_10
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 1074
+        width: 252
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5411618a180187740944201412196676
+      internalID: -11904015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_11
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 647
+        width: 231
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec3c6961e62864d4b83c1f0fda800ad9
+      internalID: -1224339654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_12
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 635
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c24147de754bb44b6a485b0eeafc0b
+      internalID: -609294794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_13
+      rect:
+        serializedVersion: 2
+        x: 863
+        y: 632
+        width: 265
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b74813a187bf34ea5209e761e9348f
+      internalID: -981388501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_14
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 627
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6abc4bd94b99524d9806702d64c2f52
+      internalID: -861709615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_15
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 630
+        width: 207
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17018bbab4b81244bba6d846386f5f24
+      internalID: 1409936770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_16
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 186
+        width: 227
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a012c11c9eaabb45ac9556e5ed48930
+      internalID: 1111553123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_17
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 179
+        width: 203
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cc64ab52ee28944a989d9fbae858fe
+      internalID: 277454056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_18
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 179
+        width: 204
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5b0ce9c69ac864887da72ed085daba
+      internalID: 426122487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_19
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 173
+        width: 233
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2af1e0b9855974f97b878d16ec61f8
+      internalID: -319236427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_20
+      rect:
+        serializedVersion: 2
+        x: 1337
+        y: 176
+        width: 228
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0ab6b3deb344d4c9bd8fde645cf5d7
+      internalID: -537763122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Viktor_fight_22
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 176
+        width: 205
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb4e5b99271a194ab74e6b4f7fc8dd1
+      internalID: -114651235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +586,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Viktor_fight_0: -1958442354
+      Viktor_fight_1: 1928988910
+      Viktor_fight_10: -11904015
+      Viktor_fight_11: -1224339654
+      Viktor_fight_12: -609294794
+      Viktor_fight_13: -981388501
+      Viktor_fight_14: -861709615
+      Viktor_fight_15: 1409936770
+      Viktor_fight_16: 1111553123
+      Viktor_fight_17: 277454056
+      Viktor_fight_18: 426122487
+      Viktor_fight_19: -319236427
+      Viktor_fight_2: -1486895591
+      Viktor_fight_20: -537763122
+      Viktor_fight_21: 880486603
+      Viktor_fight_22: -114651235
+      Viktor_fight_3: 462916869
+      Viktor_fight_4: 255697595
+      Viktor_fight_5: -789978790
+      Viktor_fight_6: 455310088
+      Viktor_fight_7: 824577449
+      Viktor_fight_8: -1531403915
+      Viktor_fight_9: 1932625665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

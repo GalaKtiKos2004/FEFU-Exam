@@ -182,6 +182,7 @@ MonoBehaviour:
   _finder: {fileID: 0}
   _speed: 3
   _delay: 5
+  _attackDistance: 1.5
 --- !u!114 &4146130471888690534
 MonoBehaviour:
   m_ObjectHideFlags: 0

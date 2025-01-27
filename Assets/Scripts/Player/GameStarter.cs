@@ -1,18 +1,18 @@
+using System;
 using UnityEngine;
 
 public class GameStarter : MonoBehaviour
 {
-    private Vector3 _startPosition;
-
-    private float _startHealth;
+    [SerializeField] private Loader _loader;
+    [SerializeField] private SaveController _saveController;
 
     private void Awake()
     {
-        _startPosition = transform.position;
+        _saveController.InitializeStartPosition(transform.position);
     }
 
     public void StartGame()
     {
-        transform.position = _startPosition;
+        _loader.Load();
     }
 }

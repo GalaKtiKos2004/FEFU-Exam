@@ -540,7 +540,7 @@ Transform:
   m_GameObject: {fileID: 517693144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.6833, y: 0.66, z: 0}
+  m_LocalPosition: {x: 16.56, y: 0.78, z: 0}
   m_LocalScale: {x: 0.49052978, y: 0.47386247, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2106,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2153165029351664375, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_Size.x
-      value: 2.232193
+      value: 2.7104783
       objectReference: {fileID: 0}
     - target: {fileID: 2153165029351664375, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_Size.y
@@ -2114,11 +2114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2153165029351664375, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_Offset.x
-      value: 0.04667473
+      value: -0.038182497
       objectReference: {fileID: 0}
     - target: {fileID: 2153165029351664375, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_Offset.y
-      value: 0.00000029802322
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: 6304341937812708466, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2188,6 +2188,10 @@ PrefabInstance:
       propertyPath: _waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 1280345205}
+    - target: {fileID: 8562755742651148321, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
+      propertyPath: _colliderSize.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9058868922960263393, guid: 2569e45c053fea5489fb80c33f5aa42e, type: 3}
       propertyPath: m_Camera
       value: 

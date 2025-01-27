@@ -8,8 +8,7 @@ public abstract class Fighter : MonoBehaviour
     protected Health Health => _health;
 
     public event Action HealthCreating;
-
-
+    
     private void OnDisable()
     {
         _health.Died -= Die;

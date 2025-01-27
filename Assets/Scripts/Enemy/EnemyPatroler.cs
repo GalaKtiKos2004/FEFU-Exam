@@ -10,18 +10,15 @@ public class EnemyPatroler : MonoBehaviour, IMovable
     [SerializeField] private PlayerFinder _finder;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _delay = 5f;
+    [SerializeField] private float _attackDistance = 1.5f; // Дистанция для остановки перед игроком
+    [SerializeField] private SimpleEnemyFighter _enemyFighter;
 
     private Transform _target;
-
-    private Coroutine _patrolDelayCorutine;
-
-    private Quaternion _rotationLeftAngle = Quaternion.Euler(0f, 180f, 0f);
-    private Quaternion _rotationRightAngle = Quaternion.Euler(0f, 0f, 0f);
-
+    private Coroutine _patrolDelayCoroutine;
+    private Quaternion _rotationLeftAngle = Quaternion.Euler(0f, 0f, 0f);
+    private Quaternion _rotationRightAngle = Quaternion.Euler(0f, 180f, 0f);
     private WaitForSeconds _wait;
-
     private float _currentSpeed;
-
     private int _currentWaypoint = 0;
 
     public event Action<float> Moved;
@@ -42,11 +39,13 @@ public class EnemyPatroler : MonoBehaviour, IMovable
     {
         Move();
 
+        if (_target == null || _target == _player) return;
+
         if (transform.position.x == _waypoints[_currentWaypoint].position.x)
         {
             if (_currentWaypoint == _waypoints.Count - 1)
             {
-                _patrolDelayCorutine = StartCoroutine(CountPatrolDelay());
+                _patrolDelayCoroutine = StartCoroutine(CountPatrolDelay());
             }
             else
             {
@@ -63,12 +62,28 @@ public class EnemyPatroler : MonoBehaviour, IMovable
 
     private void Move()
     {
+        if (_target == null) return;
+
         FlipTowardsTarget();
 
-        Moved?.Invoke(_currentSpeed);
-        transform.position = new Vector3(
-            Mathf.MoveTowards(transform.position.x, _target.position.x, _currentSpeed * Time.deltaTime),
-            transform.position.y, transform.position.z);
+        // Проверка дистанции, если цель - игрок
+        if (_target == _player && Vector3.Distance(transform.position, _player.position) <= _attackDistance)
+        {
+            // Враг останавливается перед игроком
+            _currentSpeed = 0;
+            Moved?.Invoke(_currentSpeed);
+            Attack();
+        }
+        else
+        {
+            // Если цель не в зоне атаки, продолжаем движение
+            _currentSpeed = _speed;
+            Moved?.Invoke(_currentSpeed);
+
+            transform.position = new Vector3(
+                Mathf.MoveTowards(transform.position.x, _target.position.x, _currentSpeed * Time.deltaTime),
+                transform.position.y, transform.position.z);
+        }
     }
 
     private void FlipTowardsTarget()
@@ -97,9 +112,9 @@ public class EnemyPatroler : MonoBehaviour, IMovable
 
             _currentSpeed = _speed;
 
-            if (_patrolDelayCorutine != null)
+            if (_patrolDelayCoroutine != null)
             {
-                StopCoroutine(_patrolDelayCorutine);
+                StopCoroutine(_patrolDelayCoroutine);
             }
 
             _target = _player.transform;
@@ -109,15 +124,22 @@ public class EnemyPatroler : MonoBehaviour, IMovable
             _target = _waypoints[_currentWaypoint];
         }
     }
+    
+    private void Attack()
+    {
+        _enemyFighter.Attack();
+    }
 
     private IEnumerator CountPatrolDelay()
     {
         _currentSpeed = 0;
         _currentWaypoint = 0;
+        Moved?.Invoke(_currentSpeed);
 
         yield return _wait;
 
         _waypoints.Reverse();
         _currentSpeed = _speed;
+        Moved?.Invoke(_currentSpeed);
     }
 }
